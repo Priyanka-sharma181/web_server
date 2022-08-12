@@ -35,6 +35,20 @@ app.get('/help',(req,res)=>{
 app.get("/weather",(req,res)=>{
     res.send("weather")
 })
+app.get("/help/*",(req,res)=>{
+  res.render('404page',{
+    Title:"404",
+    name:"priyanka",
+    messageError:"Help page not found"
+  })
+})
+app.get("*",(req,res)=>{
+  res.render('404page',{
+    Title:"404",
+    name:"priyanka",
+    messageError:"page not found"
+  })
+})
   app.listen(3000,()=>{
     console.log("listing");
   })
